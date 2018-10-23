@@ -2,15 +2,30 @@
   <h1>Reciple Box!</h1>
 </div>
 <div class="row">
-  <div *ngFor="let currentRecipe of recipeList" class="card recipe-card" style="width: 18rem;">
+  <div *ngFor="let currentRecipe of recipeList" class="card d-flex flex-column recipe-card" style="width: 18rem;">
     <div class="card-header">
         {{currentRecipe.title}}
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>Ingredients!</b></li>
-      <li *ngFor="let currentIncredient of currentRecipe.ingredients" class="list-group-item">{{currentIncredient}}</li>
-      <li class="list-group-item"><b>Directions!</b></li>
-      <li *ngFor="let currentDirection of currentRecipe.directions" class="list-group-item">{{currentDirection}}</li>
-    </ul>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Ingredients!</b></li>
+        <li *ngFor="let currentIncredient of currentRecipe.ingredients" class="list-group-item">{{currentIncredient}}</li>
+        <li class="list-group-item"><b>Directions!</b></li>
+        <li *ngFor="let currentDirection of currentRecipe.directions" class="list-group-item">{{currentDirection}}</li>
+      </ul>
+    </div>
+    <button class="align-self-end" (click)="editRecipe(currentRecipe)">Edit Recipe</button>
   </div>
+</div>
+
+<div *ngIf="selectedRecipe">
+  <h3>Edit Recipe</h3>
+  <h3>{{selectedRecipe.title}}</h3>
+  <label>Enter Ingredients</label>
+  <input *ngFor="let currentIngredient of selectedRecipe.ingredients; let i = index; trackBy:trackByFn" [(ngModel)]="selectedRecipe.ingredients[i]" type="text">
+  <button (click)="addIngredient()">Add Ingredient</button>
+  <label>Enter Directions</label>
+  <input *ngFor="let currentDirection of selectedRecipe.directions; let i = index; trackBy:trackByFn" [(ngModel)]="selectedRecipe.directions[i]" type="text">
+  <button (click)="addDirection()">Add Direction</button>
+  <button (click)="finishedEditing()">Finish</button>
 </div>

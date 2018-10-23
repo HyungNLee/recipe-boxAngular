@@ -10,3 +10,8 @@
   background-color: orange;
   text-align: center;
 }
+
+.edit{
+  position: relative;
+  bottom: 0;
+}

@@ -51,6 +51,25 @@ export class AppComponent {
     new Recipe('Pirozhky', this.pirozhkyIncredients, this.pirozhkyDirections)
   ];
 
-  
+  selectedRecipe: Recipe = null;
 
+  editRecipe(clickedRecipe) {
+    this.selectedRecipe = clickedRecipe;
+  }
+
+  addIngredient() {
+    this.selectedRecipe.ingredients.push("*New Ingredient*");
+  }
+
+  addDirection() {
+    this.selectedRecipe.directions.push("*New Direction*");
+  }
+
+  finishedEditing() {
+    this.selectedRecipe = null;
+  }
+
+  trackByFn(index, treatment) {
+    return index;
+  }
 }
