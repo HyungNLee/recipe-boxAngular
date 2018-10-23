@@ -1,0 +1,12 @@
+.recipe-card {
+  margin: 25px;
+}
+
+.jumbotron h1 {
+  text-align: center;
+}
+
+.card-header {
+  background-color: orange;
+  text-align: center;
+}

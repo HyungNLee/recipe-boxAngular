@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>Reciple Box!</h1>
+</div>
+<div class="row">
+  <div *ngFor="let currentRecipe of recipeList" class="card recipe-card" style="width: 18rem;">
+    <div class="card-header">
+        {{currentRecipe.title}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Ingredients!</b></li>
+      <li *ngFor="let currentIncredient of currentRecipe.ingredients" class="list-group-item">{{currentIncredient}}</li>
+      <li class="list-group-item"><b>Directions!</b></li>
+      <li *ngFor="let currentDirection of currentRecipe.directions" class="list-group-item">{{currentDirection}}</li>
+    </ul>
+  </div>
+</div>
